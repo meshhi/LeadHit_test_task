@@ -11,10 +11,8 @@ export const router = createRouter({
 })
 
 router.beforeEach(async(to) => {
-  console.log(to)
   if (!localStorage.getItem('leadhit-site-id') && to.name !== 'auth') {
     return({ name: 'auth' });
   }
-
   document.title = to?.matched[0]?.props?.default?.pageTitle;
 })
